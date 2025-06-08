@@ -1,0 +1,40 @@
+{
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "[go]": {
+    "editor.formatOnSave": true,
+    "editor.snippetSuggestions": "none"
+  },
+  "gopls": {
+    "usePlaceholders": true,
+    "completeUnimported": true,
+    "deepCompletion": true,
+    "matcher": "fuzzy",
+    "hoverKind": "FullDocumentation",
+    "linkTarget": "pkg.go.dev",
+    "staticcheck": true,
+    "completionDocumentation": true,
+    "analyses": {
+      "nilness": true,
+      "unusedparams": true,
+      "shadow": true,
+      "unusedwrite": true,
+      "fieldalignment": false
+    }
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "go.formatTool": "default",
+  "go.lintTool": "golangci-lint",
+  "go.lintOnSave": "package",
+  "go.vetOnSave": "package",
+  "go.testOnSave": true,
+  "go.testFlags": ["-v"],
+  "go.testTimeout": "30s",
+  "go.delveConfig": {
+    "dlvLoadConfig": {
+      "maxStringLen": 1000,
+      "maxArrayValues": 64,
+      "maxStructFields": -1
+    }
+  }
+}
