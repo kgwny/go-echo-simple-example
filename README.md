@@ -44,5 +44,5 @@ ____________________________________O/_______
 ⇨ http server started on [::]:8080
 ```
 
-`http://localhost:8080` にアクセスすると `Hello, Echo!` が表示される
+`http://localhost:8080` にアクセスすると `Hello, Echo!` が表示される  
 `http://localhost:8080/list` にアクセスするとTODOリスト作成画面が表示される
