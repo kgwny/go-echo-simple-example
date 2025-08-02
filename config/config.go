@@ -1,3 +1,4 @@
+// Package config loads and stores application configuration from an ini file.
 package config
 
 import (
@@ -9,12 +10,11 @@ import (
 
 type ConfigList struct {
 	SQLDriver string
-	DbName    string
+	DBName    string
 	LogFile   string
 }
 
-var Db *sql.DB
-var err error
+var DB *sql.DB
 var Config ConfigList
 
 func init() {
@@ -28,7 +28,7 @@ func LoadConfig() {
 	}
 	Config = ConfigList{
 		SQLDriver: cfg.Section("db").Key("driver").String(),
-		DbName:    cfg.Section("db").Key("name").String(),
+		DBName:    cfg.Section("db").Key("name").String(),
 		LogFile:   cfg.Section("web").Key("logfile").String(),
 	}
 }

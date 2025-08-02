@@ -11,19 +11,18 @@ import (
 )
 
 var DB *gorm.DB
-var err error
 
 const (
 	tableNameTodo = "todos"
 )
 
 func init() {
-	if config.Config.DbName == "" {
+	if config.Config.DBName == "" {
 		log.Fatal("database name is not set in config")
 	}
 
 	var err error
-	DB, err = gorm.Open(sqlite.Open(config.Config.DbName), &gorm.Config{})
+	DB, err = gorm.Open(sqlite.Open(config.Config.DBName), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("failed to connect database: %v", err)
 	}
