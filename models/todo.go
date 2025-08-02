@@ -13,21 +13,21 @@ func CreateTodo(content string) (err error) {
 	todo := Todo{
 		Content: content,
 	}
-	Db.Create(&todo)
+	DB.Create(&todo)
 	return err
 }
 
 func DeleteTodo(id int) (err error) {
-	Db.Delete(&Todo{}, id)
+	DB.Delete(&Todo{}, id)
 	return err
 }
 
 func GetTodo(id int) (todo Todo, err error) {
-	Db.Find(&todo, id)
+	DB.Find(&todo, id)
 	return todo, err
 }
 
 func UpdateTodo(t Todo) (err error) {
-	Db.Save(&t)
+	DB.Save(&t)
 	return err
 }

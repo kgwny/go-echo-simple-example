@@ -1,15 +1,16 @@
+// Package models provides database models and initialization logic.
 package models
 
 import (
-	"fmt"
 	"go-echo-simple-example/config"
+	"log"
 
 	_ "github.com/mattn/go-sqlite3"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
-var Db *gorm.DB
+var DB *gorm.DB
 var err error
 
 const (
@@ -17,9 +18,17 @@ const (
 )
 
 func init() {
-	Db, err = gorm.Open(sqlite.Open(config.Config.DbName))
-	if err != nil {
-		fmt.Errorf("error:%v", err)
+	if config.Config.DbName == "" {
+		log.Fatal("database name is not set in config")
 	}
-	Db.AutoMigrate(&Todo{})
+
+	var err error
+	DB, err = gorm.Open(sqlite.Open(config.Config.DbName), &gorm.Config{})
+	if err != nil {
+		log.Fatalf("failed to connect database: %v", err)
+	}
+
+	if err := DB.AutoMigrate(&Todo{}); err != nil {
+		log.Fatalf("failed to migrate database: %v", err)
+	}
 }
