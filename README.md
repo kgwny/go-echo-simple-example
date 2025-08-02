@@ -2,9 +2,9 @@
 
 ## 最初にやること
 
-自身のGitHubリポジトリに合わせて初期化する
+go.mod ファイルを初期化する
 ```
-go mod init github.com/kgwny/go-echo-simple-example
+go mod init go-echo-simple-example
 ```
 
 echo フレームワークのインストール
@@ -12,14 +12,26 @@ echo フレームワークのインストール
 go get -u github.com/labstack/echo/v4
 ```
 
-## Hello, Echo! を実行する
+gorm のインストール
+```
+go get -u gorm.io/gorm
+```
 
-以下のコマンドを実行する
+gorm sqlite ドライバのインストール
+```
+go get -u gorm.io/driver/sqlite
+```
+
+config ライブラリのインストール
+```
+go get gopkg.in/ini.v1
+```
+
+## サーバー起動
 ```
 go run main.go
 ```
 
-echo サーバーが起動する
 ```
    ____    __
   / __/___/ /  ___
@@ -32,4 +44,5 @@ ____________________________________O/_______
 ⇨ http server started on [::]:8080
 ```
 
-ブラウザで `localhost:8080` にアクセスすると `Hello, Echo!` が表示される
+`http://localhost:8080` にアクセスすると `Hello, Echo!` が表示される
+`http://localhost:8080/list` にアクセスするとTODOリスト作成画面が表示される
